@@ -37,15 +37,350 @@ ol {
   list-style: none;
 }
 
+/* ===== Начало CSS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1B1919;
+  color: #FFFFFF;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Контейнер ===== */
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  width: 1140px;
+  gap: 30px;
+  align-items: flex-end;
+}
+
+/* ===== Блок с видео ===== */
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 711px;
+}
+
+.result__video-container {
+  position: relative;
+  width: 100%;
+  height: 386px;
+}
+
+.result__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Поиск ===== */
+.search-form {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.search-form__fieldset {
+  border: none;
+  padding: 0;
+}
+
+.search-form__fieldset:first-child {
+  width: 225px;
+}
+
+.search-form__fieldset:nth-child(2) {
+  width: 212px;
+  margin-left: 40px;
+}
+
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.search-form__label:hover {
+  text-decoration: underline;
+}
+
+/* Текстовое поле */
+.search-form__textfield {
+  background: transparent;
+  border: none;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 18px;
+  width: 225px;
+  height: 27px;
+  padding: 0;
+  outline: none;
+  appearance: none;
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Чекбоксы */
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__pseudo-checkbox {
+  display: inline-flex;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #FFFFFF;
+  padding: 1px;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  opacity: 0;
+}
+
+.search-form__label:has(.search-form__checkbox:checked) .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.search-form__checkbox:focus,
+.search-form__textfield:focus {
+  outline: none;
+}
+
+/* Кнопка (Найти) */
+.search-form__submit-button {
+  width: 194px;
+  height: 34px;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+/* ===== Стиль кнопок ===== */
+.button {
+  border: 1px solid #FFFFFF;
+  background: transparent;
+  color: #FFFFFF;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 1px;
+}
+
+/* Кнопка (Показать ещё) */
+.more-button {
+  width: 100%;
+  height: 34px;
+  flex-shrink: 0; /* чтобы кнопка не сжималась */
+}
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 399px;
+}
+
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 0.94;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ЧАсть заголовка (По-) */
+.content__accent {
+  color: #545050;
+}
+
+/* Контейнер, список карточек и кнопка (Показать ещё) */
+.content__list-container {
+  position: relative;
+  height: 298px;      /* фикс высоты */
+  overflow-y: auto;   /* скролл всего контейнера (+ кнопка) */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Список карточек */
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;             /* отступ между карточками */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Список */
+.content__list-item {
+  padding: 0 3px;
+}
+
+.content__card-link {
+  display: block;
+  text-decoration: none;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+/* Карточка */
+.content__card-link_current {
+  background-color: #545050;
+}
+
+/* Содержимое карточки */
+.content__video-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+.content__video-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-description {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 0.9;
+  color: #FFFFFF;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Скрыть */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.result__video-container,
+.content__list-container {
+  position: relative;
+}
+
 /* Кастомный скроллбар */
-.custom-scrollbar::-webkit-scrollbar {
+.content__list-container::-webkit-scrollbar {
   width: 4px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgb(217 217 217 / 10%);
+.content__list-container::-webkit-scrollbar-track {
+  background: rgba(217, 217, 217, 0.1);
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
+.content__list-container::-webkit-scrollbar-thumb {
+  background: #D9D9D9;
 }
+
+ 
