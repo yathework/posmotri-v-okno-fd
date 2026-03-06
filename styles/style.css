@@ -2,22 +2,15 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   block-size: 100%;
 }
 
-.page {
-  inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  background-color: #1b1919;
-}
-
+/* ===== Базовый стартовый код ===== */
 h1,
 h2,
 h3,
@@ -38,11 +31,6 @@ ol {
 }
 
 /* ===== Начало CSS ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   background-color: #1B1919;
@@ -249,7 +237,7 @@ body {
   margin: 0;
 }
 
-/* ЧАсть заголовка (По-) */
+/* Часть заголовка (По-) */
 .content__accent {
   color: #545050;
 }
@@ -382,5 +370,3 @@ body {
 .content__list-container::-webkit-scrollbar-thumb {
   background: #D9D9D9;
 }
-
- 
