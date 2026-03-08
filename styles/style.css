@@ -83,7 +83,7 @@ body {
   display: flex;
   align-items: flex-start;
   width: 100%;
-  height: 54px;           /* фиксированние высоты, чтобы общая высота .result стала 456px */
+  height: 54px;           /* фиксированная высота, чтобы общая высота .result стала 456px */
 }
 
 .search-form__fieldset {
@@ -324,7 +324,7 @@ body {
 .content__video-card-description-container {
   flex: 1 1 0;       /* чтобы ширина считалась от свободного места */
   min-width: 0;      /* необходимо для обрезания текста */
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 /* Название города (видео) */
@@ -332,7 +332,7 @@ body {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 30px;
-  line-height: 1;   /* фикс */       
+  line-height: 1;   /* фикс */
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 2px 0 4px 0;
