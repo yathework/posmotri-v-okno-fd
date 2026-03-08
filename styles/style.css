@@ -75,6 +75,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;  /* центрируем видео */
 }
 
 /* ===== Поиск ===== */
@@ -82,6 +83,7 @@ body {
   display: flex;
   align-items: flex-start;
   width: 100%;
+  height: 54px;           /* фиксированние высоты, чтобы общая высота .result стала 456px */
 }
 
 .search-form__fieldset {
@@ -102,30 +104,37 @@ body {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1;
   color: #FFFFFF;
   margin-bottom: 5px;
 }
 
+/* Обёртка для поля или чекбокса */
 .search-form__label {
   display: flex;
   align-items: center;
   width: fit-content;
-  gap: 5px;
+  gap: 6px;
+}
+
+.search-form__label:has(.search-form__textfield) {
+  cursor: auto;
+}
+
+.search-form__label:has(.search-form__checkbox) {
   cursor: pointer;
 }
 
-.search-form__label:hover {
+.search-form__label:has(.search-form__checkbox):hover {
   text-decoration: underline;
 }
 
-/* Текстовое поле */
+/* Текстовое поле ввода */
 .search-form__textfield {
   background: transparent;
   border: none;
   border-top: 1px solid #FFFFFF;
   border-bottom: 1px solid #FFFFFF;
-  color: #FFFFFF;
+  color: #FFFFFF;               /* белый текст при вводе */
   font-family: inherit;
   font-size: 18px;
   width: 225px;
@@ -136,13 +145,13 @@ body {
 }
 
 .search-form__textfield::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);    /* полупрозрачный белый – согласно макету */
 }
 
 /* Чекбоксы */
 .search-form__checkbox-list {
   display: flex;
-  gap: 15px;
+  gap: 19px;
 }
 
 .search-form__pseudo-checkbox {
@@ -216,9 +225,10 @@ body {
 
 /* Кнопка (Показать ещё) */
 .more-button {
-  width: 100%;
+  inline-size: calc(100% - 4px);   /* чтобы обводка фокуса не обрезалась */
+  margin: 0 2px 2px;               /* отступы для обводки */
   height: 34px;
-  flex-shrink: 0; /* чтобы кнопка не сжималась */
+  flex-shrink: 0;   /* чтобы кнопка не сжималась */
 }
 
 .content__details {
@@ -249,13 +259,14 @@ body {
   overflow-y: auto;   /* скролл всего контейнера (+ кнопка) */
   display: flex;
   flex-direction: column;
+  gap: 30px;   /* отступ между списком и кнопкой */
 }
 
 /* Список карточек */
 .content__list {
   display: flex;
   flex-direction: column;
-  gap: 30px;             /* отступ между карточками */
+  gap: 30px;   /* отступ между карточками */
   list-style: none;
   margin: 0;
   padding: 0;
@@ -299,7 +310,7 @@ body {
 .content__video-card {
   display: flex;
   align-items: flex-start;
-  gap: 6px;
+  gap: 4px;   /* фикс - (Зеленоград...) */
 }
 
 .content__video-card-thumbnail {
@@ -307,30 +318,34 @@ body {
   height: 103px;
   object-fit: cover;
   object-position: center;
+  flex-shrink: 0;   /* картинка не сжимается, даже если текста много */
 }
 
 .content__video-card-description-container {
-  flex-grow: 1;
+  flex: 1 1 0;       /* чтобы ширина считалась от свободного места */
+  min-width: 0;      /* необходимо для обрезания текста */
+  overflow: hidden;  
 }
 
+/* Название города (видео) */
 .content__video-card-title {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 30px;
-  line-height: 1;
+  line-height: 1;   /* фикс */       
   text-transform: uppercase;
   color: #FFFFFF;
-  margin: 0 0 6px 0;
+  margin: 2px 0 4px 0;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis;   /* названия с многоточием */
 }
 
 .content__video-card-description {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 0.9;
+  line-height: 1;   /* фикс */
   color: #FFFFFF;
   margin: 0;
   display: -webkit-box;
