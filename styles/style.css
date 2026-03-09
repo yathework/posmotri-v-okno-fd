@@ -83,7 +83,7 @@ body {
   display: flex;
   align-items: flex-start;
   width: 100%;
-  padding: 0 0;  /* вертикальные отступы (соответствует макету) */
+  padding: 2px 0  /* вертикальные отступы (соответствует макету) */
 }
 
 .search-form__fieldset {
