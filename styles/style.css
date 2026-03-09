@@ -78,12 +78,12 @@ body {
   object-position: center;  /* центрируем видео */
 }
 
-/* ===== Поиск ===== */
+ /* ===== Поиск ===== */
 .search-form {
   display: flex;
   align-items: flex-start;
   width: 100%;
-  height: 54px;           /* фиксированная высота, чтобы общая высота .result стала 456px */
+  padding: 0 0;  /* вертикальные отступы (соответствует макету) */
 }
 
 .search-form__fieldset {
